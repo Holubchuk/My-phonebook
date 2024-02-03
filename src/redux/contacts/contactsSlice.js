@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { $authInstance } from '../auth/authSlice';
+import { instanceAuth } from '../auth/authSlice';
 
 export const apiGetContacts = createAsyncThunk(
   'contacts/apiGetContacts',
   async (_, thunkApi) => {
     try {
-      const { data } = await $authInstance.get('/contacts');
+      const { data } = await instanceAuth.get('/contacts');
 
       return data;
     } catch (error) {
@@ -18,7 +18,7 @@ export const apiAddContact = createAsyncThunk(
   'contacts/apiAddContact',
   async (formData, thunkApi) => {
     try {
-      const { data } = await $authInstance.post('/contacts', formData);
+      const { data } = await instanceAuth.post('/contacts', formData);
 
       return data;
     } catch (error) {
@@ -27,11 +27,11 @@ export const apiAddContact = createAsyncThunk(
   }
 );
 
-export const apiRemoveContact = createAsyncThunk(
+export const apiDeleteContact = createAsyncThunk(
   'contacts/apiRemoveContact',
   async (contactId, thunkApi) => {
     try {
-      const { data } = await $authInstance.delete(`/contacts/${contactId}`);
+      const { data } = await instanceAuth.delete(`/contacts/${contactId}`);
 
       return data;
     } catch (error) {
@@ -44,11 +44,17 @@ const initialState = {
   contacts: null,
   error: null,
   isLoading: false,
+  filter: '',
 };
 
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
+  reducers: {
+    setFilter(state, action) {
+      state.filter = action.payload;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(apiGetContacts.fulfilled, (state, action) => {
@@ -59,7 +65,7 @@ const contactsSlice = createSlice({
         state.isLoading = false;
         state.contacts = [...state.contacts, action.payload];
       })
-      .addCase(apiRemoveContact.fulfilled, (state, action) => {
+      .addCase(apiDeleteContact.fulfilled, (state, action) => {
         // action.payload -> { id: "213123", name: " John", number: "12312" }
         state.isLoading = false;
         state.contacts = state.contacts.filter(
@@ -71,7 +77,7 @@ const contactsSlice = createSlice({
         isAnyOf(
           apiGetContacts.pending,
           apiAddContact.pending,
-          apiRemoveContact.pending
+          apiDeleteContact.pending
         ),
         state => {
           state.isLoading = true;
@@ -82,7 +88,7 @@ const contactsSlice = createSlice({
         isAnyOf(
           apiGetContacts.rejected,
           apiAddContact.rejected,
-          apiRemoveContact.rejected
+          apiDeleteContact.rejected
         ),
         (state, action) => {
           state.isLoading = false;
@@ -91,4 +97,5 @@ const contactsSlice = createSlice({
       ),
 });
 
+export const { setFilter } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;

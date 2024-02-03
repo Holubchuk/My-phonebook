@@ -1,0 +1,39 @@
+.containerMenu {
+    text-align: center;
+    display: flex;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .userWelcomeMenu {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    margin-right: 10px;
+  }
+  
+  .logoutButtonMenu {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logoutButtonMenu:hover {
+    background-color: #0056b3;
+  }
+  
+  .logoutButtonMenu:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .spanMenu {
+    font-weight: 700;
+    text-decoration: underline;
+  }

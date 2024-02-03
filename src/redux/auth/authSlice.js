@@ -1,23 +1,23 @@
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const $authInstance = axios.create({
+export const instanceAuth = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
 });
 
 const setToken = token => {
-  $authInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
+  instanceAuth.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearToken = () => {
-  $authInstance.defaults.headers.common.Authorization = '';
+  instanceAuth.defaults.headers.common.Authorization = '';
 };
 
 export const apiRegisterUser = createAsyncThunk(
   'auth/apiRegisterUser',
   async (formData, thunkApi) => {
     try {
-      const { data } = await $authInstance.post('/users/signup', formData);
+      const { data } = await instanceAuth.post('/users/signup', formData);
 
       setToken(data.token);
 
@@ -32,7 +32,7 @@ export const apiLoginUser = createAsyncThunk(
   'auth/apiLoginUser',
   async (formData, thunkApi) => {
     try {
-      const { data } = await $authInstance.post('/users/login', formData);
+      const { data } = await instanceAuth.post('/users/login', formData);
 
       setToken(data.token);
 
@@ -47,7 +47,7 @@ export const apiLogoutUser = createAsyncThunk(
   'auth/apiLogoutUser',
   async (_, thunkApi) => {
     try {
-      await $authInstance.post('/users/logout');
+      await instanceAuth.post('/users/logout');
       clearToken();
 
       return;
@@ -65,7 +65,7 @@ export const apiRefreshUser = createAsyncThunk(
     if (!token) return thunkApi.rejectWithValue("You don't have a token!");
     try {
       setToken(token);
-      const { data } = await $authInstance.get('/users/current');
+      const { data } = await instanceAuth.get('/users/current');
 
       return data;
     } catch (error) {
@@ -114,7 +114,7 @@ const authSlice = createSlice({
           apiRegisterUser.pending,
           apiLoginUser.pending,
           apiRefreshUser.pending,
-          apiLogoutUser.pending,
+          apiLogoutUser.pending
         ),
         state => {
           state.isLoading = true;
@@ -126,7 +126,7 @@ const authSlice = createSlice({
           apiRegisterUser.rejected,
           apiLoginUser.rejected,
           apiRefreshUser.rejected,
-          apiLogoutUser.rejected,
+          apiLogoutUser.rejected
         ),
         (state, action) => {
           state.isLoading = false;

@@ -18,6 +18,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
   }
   
   .registerLoginContainer {
@@ -27,9 +31,9 @@
   
   .registerLoginContainer a {
     text-decoration: none;
-    color: #007bff;
     font-weight: bold;
   }
   .navSpan {
     font-size: 24px;
+    font-weight: 700;
   }

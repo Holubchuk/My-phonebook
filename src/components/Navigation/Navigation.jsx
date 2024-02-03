@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { selectAuthIsLoggedIn } from '../../redux/auth/authSlice.selectors';
+import { selectAuthIsLoggedIn } from '../../redux/auth/authSelectors';
 import css from './Navigation.module.css'
 
 export const Navigation = () => {
