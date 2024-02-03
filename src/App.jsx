@@ -1,6 +1,3 @@
-// import { AddContactForm } from './components/AddContactForm/AddContactForm';
-// import { SearchFilter } from './components/SearchFilter/SearchFilter';
-// import { ContactsList } from './components/ContactsList/ContactsList';
 import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Layout } from 'components/Layout/Layout';
@@ -57,14 +54,3 @@ export const App = () => {
       </Layout>
     );
 };
-
-
-
-{/* <div>
-<h2 style={{ textAlign: 'center' }}>Phonebook</h2>
-<AddContactForm />
-
-<h2 style={{ textAlign: 'center' }}>Contacts</h2>
-<SearchFilter />
-<ContactsList />
-</div> */}
