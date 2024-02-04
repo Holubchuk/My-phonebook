@@ -43,6 +43,7 @@ const LoginPage = () => {
             placeholder="**********"
             minLength={7}
             className={css.inputLogin}
+            autocomplete="current-password"
             required
           />
         </label>

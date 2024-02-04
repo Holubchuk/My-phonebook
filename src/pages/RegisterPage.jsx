@@ -56,6 +56,7 @@ const RegisterPage = () => {
             name="password"
             placeholder="**********"
             minLength={7}
+            autocomplete="current-password"
             className={css.inputRegister}
             required
           />
