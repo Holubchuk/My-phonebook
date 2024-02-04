@@ -3,14 +3,16 @@ import { useDispatch } from 'react-redux';
 
 import { apiRegisterUser } from '../redux/auth/authSlice';
 
+import css from '../App.module.css';
+
 const RegisterPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit = e => {
     e.preventDefault();
-    const name = e.currentTarget.elements.userName.value;
-    const email = e.currentTarget.elements.userEmail.value;
-    const password = e.currentTarget.elements.userPassword.value;
+    const name = e.currentTarget.elements.name.value;
+    const email = e.currentTarget.elements.email.value;
+    const password = e.currentTarget.elements.password.value;
 
     const formData = {
       name,
@@ -22,40 +24,45 @@ const RegisterPage = () => {
   };
 
   return (
-    <div>
-      <h1>RegisterPage</h1>
+    <div className={css.containerRegister}>
+      <h1 className={css.titleRegister}>Make a new account</h1>
 
-      <form onSubmit={onSubmit}>
-        <label>
+      <form className={css.formRegister} onSubmit={onSubmit}>
+        <label className={css.labelRegister}>
           Name:
           <input
             type="text"
-            name="userName"
-            placeholder="Kirito"
+            name="name"
+            placeholder="Alex"
             minLength={2}
+            className={css.inputRegister}
             required
           />
         </label>
-        <label>
+        <label className={css.labelRegister}>
           Email:
           <input
             type="email"
-            name="userEmail"
-            placeholder="kirito228@hotmail.ua"
+            name="email"
+            placeholder="alex123@gmail.com"
+            className={css.inputRegister}
             required
           />
         </label>
-        <label>
+        <label className={css.labelRegister}>
           Password:
           <input
             type="password"
-            name="userPassword"
+            name="password"
             placeholder="**********"
             minLength={7}
+            className={css.inputRegister}
             required
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <button type="submit" className={css.buttonRegister}>
+          Sign Up
+        </button>
       </form>
     </div>
   );

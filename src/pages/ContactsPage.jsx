@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { apiGetContacts } from '../redux/contacts/contactsSlice';
 import {
-    selectContactsError,
-    selectContactsIsLoading,
+  selectContactsError,
+  selectContactsIsLoading,
 } from '../redux/contacts/contactsSelectors';
 
 import { AddContactForm } from 'components/AddContactForm/AddContactForm';

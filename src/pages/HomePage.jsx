@@ -1,5 +1,5 @@
 import React from 'react';
-import css from '../App.module.css'
+import css from '../App.module.css';
 
 const HomePage = () => {
   return (
@@ -10,7 +10,6 @@ const HomePage = () => {
       </p>
     </div>
   );
-}
-
+};
 
 export default HomePage;

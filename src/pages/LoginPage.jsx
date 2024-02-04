@@ -2,13 +2,15 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { apiLoginUser } from '../redux/auth/authSlice';
 
+import css from '../App.module.css';
+
 const LoginPage = () => {
   const dispatch = useDispatch();
 
   const onSubmit = e => {
     e.preventDefault();
-    const email = e.currentTarget.elements.userEmail.value;
-    const password = e.currentTarget.elements.userPassword.value;
+    const email = e.currentTarget.elements.email.value;
+    const password = e.currentTarget.elements.password.value;
 
     const formData = {
       email,
@@ -19,30 +21,34 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <h1>LoginPage</h1>
+    <div className={css.containerLogin}>
+      <h1 className={css.titleLogin}>Have an account? Let's go</h1>
 
-      <form onSubmit={onSubmit}>
-        <label>
+      <form className={css.formLogin} onSubmit={onSubmit}>
+        <label className={css.labelLogin}>
           Email:
           <input
             type="email"
-            name="userEmail"
-            placeholder="kirito228@hotmail.ua"
+            name="email"
+            placeholder="alex123@gmail.com"
+            className={css.inputLogin}
             required
           />
         </label>
-        <label>
+        <label className={css.labelLogin}>
           Password:
           <input
             type="password"
-            name="userPassword"
+            name="password"
             placeholder="**********"
             minLength={7}
+            className={css.inputLogin}
             required
           />
         </label>
-        <button type="submit">Sign In</button>
+        <button type="submit" className={css.buttonLogin}>
+          Sign In
+        </button>
       </form>
     </div>
   );
