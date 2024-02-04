@@ -80,6 +80,7 @@ const initialState = {
   isLoggedIn: false,
   error: null,
   isLoading: false,
+  isRefreshing: false,
 };
 
 const authSlice = createSlice({
@@ -90,18 +91,21 @@ const authSlice = createSlice({
       .addCase(apiRegisterUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
         state.userData = action.payload.user;
         state.token = action.payload.token;
       })
       .addCase(apiLoginUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
         state.userData = action.payload.user;
         state.token = action.payload.token;
       })
       .addCase(apiRefreshUser.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
         state.userData = action.payload;
       })
       .addCase(apiLogoutUser.fulfilled, () => {
@@ -118,6 +122,7 @@ const authSlice = createSlice({
         state => {
           state.isLoading = true;
           state.error = null;
+          state.isRefreshing = true;
         }
       )
       .addMatcher(
@@ -130,6 +135,7 @@ const authSlice = createSlice({
         (state, action) => {
           state.isLoading = false;
           state.error = action.payload;
+          state.isRefreshing = false;
         }
       ),
 });

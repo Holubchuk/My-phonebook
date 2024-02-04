@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { apiGetContacts } from '../redux/contacts/contactsSlice';
 import {
+  selectContacts,
   selectContactsError,
   selectContactsIsLoading,
 } from '../redux/contacts/contactsSelectors';
@@ -16,6 +17,7 @@ const ContactsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectContactsIsLoading);
   const error = useSelector(selectContactsError);
+  const contacts = useSelector(selectContacts);
 
   useEffect(() => {
     dispatch(apiGetContacts());
@@ -27,7 +29,7 @@ const ContactsPage = () => {
       {error && 'Error'}
       <AddContactForm />
       <SearchFilter />
-      <ContactsList />
+      {contacts && <ContactsList />}
     </div>
   );
 };
