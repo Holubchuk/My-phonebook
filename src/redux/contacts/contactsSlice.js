@@ -66,7 +66,6 @@ const contactsSlice = createSlice({
         state.contacts = [...state.contacts, action.payload];
       })
       .addCase(apiDeleteContact.fulfilled, (state, action) => {
-        // action.payload -> { id: "213123", name: " John", number: "12312" }
         state.isLoading = false;
         state.contacts = state.contacts.filter(
           contact => contact.id !== action.payload.id
