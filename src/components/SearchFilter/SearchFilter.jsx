@@ -3,6 +3,8 @@ import { setFilter } from '../../redux/contacts/contactsSlice';
 import css from './SearchFilter.module.css';
 import { useDispatch } from 'react-redux';
 
+import { TextField } from '@mui/material';
+
 export const SearchFilter = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState('');
@@ -15,13 +17,23 @@ export const SearchFilter = () => {
 
   return (
     <div className={css.filterContainer}>
-      <p className={css.filterTitle}>Find Profile:</p>
+      {/* <p className={css.filterTitle}>Find Profile:</p>
       <input
         value={inputValue}
         onChange={handleInputChange}
         type="text"
         name="filter"
         className={css.filterInput}
+      /> */}
+      <TextField
+        margin="normal"
+        required
+        fullWidth
+        label="Contact search:"
+        type="text"
+        name="filter"
+        value={inputValue}
+        onChange={handleInputChange}
       />
     </div>
   );

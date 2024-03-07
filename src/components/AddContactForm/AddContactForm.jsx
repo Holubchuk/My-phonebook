@@ -5,6 +5,8 @@ import { nanoid } from 'nanoid';
 import { selectContacts } from '../../redux/contacts/contactsSelectors';
 import { apiAddContact } from '../../redux/contacts/contactsSlice';
 
+import { TextField, Button } from '@mui/material';
+
 export const AddContactForm = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
@@ -48,7 +50,7 @@ export const AddContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={css.form}>
-      <label>
+      {/* <label>
         <span className={css.formLabel}>Name:</span>
         <input
           type="text"
@@ -59,8 +61,21 @@ export const AddContactForm = () => {
           className={css.formInput}
           required
         />
-      </label>
-      <label>
+      </label> */}
+      <TextField
+        margin="normal"
+        required
+        fullWidth
+        type="text"
+        label="Name:"
+        name="name"
+        autoComplete="name"
+        autoFocus
+        value={form.name || ''}
+        placeholder="Alex"
+        onChange={handleFormChange}
+      />
+      {/* <label>
         <span className={css.formLabel}>Number:</span>
         <input
           type="tel"
@@ -73,10 +88,23 @@ export const AddContactForm = () => {
           className={css.formInput}
           required
         />
-      </label>
-      <button type="submit" className={css.formButton}>
+      </label> */}
+      <TextField
+        margin="normal"
+        required
+        fullWidth
+        type="tel"
+        label="Number:"
+        name="number"
+        autoComplete="number"
+        pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
+        value={form.number || ''}
+        onChange={handleFormChange}
+        placeholder="111-11-11"
+      />
+      <Button type="submit"  variant="contained">
         Add Contact
-      </button>
+      </Button>
     </form>
   );
 };

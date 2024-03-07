@@ -1,7 +1,7 @@
 .containerMenu {
     text-align: center;
     display: flex;
-    padding: 20px;
+    padding: 10px;
     background-color: #f5f5f5;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -15,24 +15,27 @@
   }
   
   .logoutButtonMenu {
-    background-color: #007bff;
+    /* background-color: #007bff;
     color: #fff;
     padding: 10px 10px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease; */
+    height: fit-content !important;
+    padding: 5px !important;
+    margin-top: 10px !important;
   }
   
-  .logoutButtonMenu:hover {
+  /* .logoutButtonMenu:hover {
     background-color: #0056b3;
   }
   
   .logoutButtonMenu:disabled {
     background-color: #ccc;
     cursor: not-allowed;
-  }
+  } */
   .spanMenu {
     font-weight: 700;
     text-decoration: underline;

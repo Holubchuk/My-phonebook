@@ -7,6 +7,17 @@
   margin-top: 30px;
 }
 
+.containerContacts {
+  display: flex;
+  justify-content: space-evenly;
+}
+.containerContactsFilter {
+  display: flex;
+  flex-direction: column;
+  width: 420px;
+  margin-top: 14px;
+}
+
 .headingHome {
   font-size: 28px;
   font-weight: bold;
@@ -43,9 +54,10 @@
 .formLogin {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.labelRegister,
+/* .labelRegister,
 .labelLogin {
   margin-bottom: 15px;
 }
@@ -57,9 +69,9 @@
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-}
+} */
 
-.buttonRegister,
+/* .buttonRegister,
 .buttonLogin {
   background-color: #007bff;
   color: #fff;
@@ -68,12 +80,13 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  width: 20%;
   margin: 0 auto;
+  max-width: 50%;
   margin-top: 10px;
+  max-width: 50%;
 }
 
 .buttonRegister:hover,
 .buttonLogin:hover {
   background-color: #0056b3;
-}
+} */

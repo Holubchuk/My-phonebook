@@ -8,6 +8,8 @@ import {
   selectContactsIsLoading,
 } from '../redux/contacts/contactsSelectors';
 
+import css from '../App.module.css';
+
 import { AddContactForm } from 'components/AddContactForm/AddContactForm';
 import { Loader } from 'components/Loader/Loader';
 import { SearchFilter } from 'components/SearchFilter/SearchFilter';
@@ -24,13 +26,17 @@ const ContactsPage = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <>
       {isLoading && <Loader />}
       {error && 'Error'}
-      <AddContactForm />
-      <SearchFilter />
-      {contacts && <ContactsList />}
-    </div>
+      <div className={css.containerContacts}>
+        <div className={css.containerContactsFilter}>
+          <SearchFilter />
+          {contacts && <ContactsList />}
+        </div>
+        <AddContactForm />
+      </div>
+    </>
   );
 };
 
