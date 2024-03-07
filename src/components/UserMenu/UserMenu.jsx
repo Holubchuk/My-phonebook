@@ -16,11 +16,11 @@ export const UserMenu = () => {
 
   const handleLogOut = () => dispatch(apiLogoutUser());
 
-  const userEmail = userData?.email ?? "Could't get user email";
+  const userName = userData?.name ?? "Could't get user email";
   return (
     <div className={css.containerMenu}>
       <p className={css.userWelcomeMenu}>
-        Welcome, <span className={css.spanMenu}>{userEmail}</span>
+        Welcome, <span className={css.spanMenu}>{userName}</span>
       </p>
       <Button
         variant="contained"

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { instanceAuth } from '../auth/authSlice';
+import Notiflix from 'notiflix';
 
 export const apiGetContacts = createAsyncThunk(
   'contacts/apiGetContacts',
@@ -22,6 +23,7 @@ export const apiAddContact = createAsyncThunk(
 
       return data;
     } catch (error) {
+      Notiflix.Notify.failure(`We're sorry, something went wrong`);
       return thunkApi.rejectWithValue(error.message);
     }
   }

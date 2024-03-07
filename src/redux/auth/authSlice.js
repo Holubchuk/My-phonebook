@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
 import axios from 'axios';
+import Notiflix from 'notiflix';
 
 export const instanceAuth = axios.create({
   baseURL: 'https://connections-api.herokuapp.com',
@@ -23,6 +24,7 @@ export const apiRegisterUser = createAsyncThunk(
 
       return data;
     } catch (error) {
+      Notiflix.Notify.failure(`You entered an incorrect login or password`);
       return thunkApi.rejectWithValue(error.message);
     }
   }
@@ -38,6 +40,7 @@ export const apiLoginUser = createAsyncThunk(
 
       return data;
     } catch (error) {
+      Notiflix.Notify.failure(`You entered an incorrect login or password`);
       return thunkApi.rejectWithValue(error.message);
     }
   }

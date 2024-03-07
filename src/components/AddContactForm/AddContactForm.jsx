@@ -93,9 +93,10 @@ export const AddContactForm = () => {
         margin="normal"
         required
         fullWidth
-        type="tel"
+        type="number"
         label="Number:"
         name="number"
+        max="7"
         autoComplete="number"
         pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
         value={form.number || ''}
