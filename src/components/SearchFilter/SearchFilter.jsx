@@ -17,14 +17,6 @@ export const SearchFilter = () => {
 
   return (
     <div className={css.filterContainer}>
-      {/* <p className={css.filterTitle}>Find Profile:</p>
-      <input
-        value={inputValue}
-        onChange={handleInputChange}
-        type="text"
-        name="filter"
-        className={css.filterInput}
-      /> */}
       <TextField
         margin="normal"
         required

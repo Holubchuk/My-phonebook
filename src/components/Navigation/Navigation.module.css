@@ -12,6 +12,7 @@
     background-color: #f0f0f0;
     padding: 10px;
     text-align: center;
+    position: relative;
   }
   
   nav {
@@ -27,6 +28,12 @@
   .registerLoginContainer {
     display: flex;
     gap: 10px;
+    position: absolute;
+    left: 80%;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
   }
   
   .registerLoginContainer a {

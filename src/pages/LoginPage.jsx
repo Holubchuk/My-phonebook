@@ -27,16 +27,6 @@ const LoginPage = () => {
       <h1 className={css.titleLogin}>Have an account? Let's go</h1>
 
       <form className={css.formLogin} onSubmit={onSubmit}>
-        {/* <label className={css.labelLogin}>
-          Email:
-          <input
-            type="email"
-            name="email"
-            placeholder="alex123@gmail.com"
-            className={css.inputLogin}
-            required
-          />
-        </label> */}
         <TextField
           margin="normal"
           required
@@ -48,17 +38,6 @@ const LoginPage = () => {
           autoFocus
           placeholder="alex123@gmail.com"
         />
-        {/* <label className={css.labelLogin}>
-          Password:
-          <input
-            type="password"
-            name="password"
-            placeholder="**********"
-            minLength={7}
-            className={css.inputLogin}
-            required
-          />
-        </label> */}
         <TextField
           margin="normal"
           required
@@ -78,4 +57,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-

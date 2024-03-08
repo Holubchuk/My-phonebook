@@ -1,39 +1,34 @@
-/* .contactListItem {
-    font-size: 24px;
-    text-transform: capitalize;
-} */
-
 .contactListItem {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
-  }
-  
-  .contactListItem:hover {
-    background-color: #e9ecef;
-  }
-  
-  .contactName {
-    flex: 1;
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .contactNumber {
-    color: #6c757d;
-    margin-right: 10px;
-  }
-  
-  .deleteButton {
-    color: #dc3545 !important;
-    border-color: #dc3545 !important;
-  }
-  
-  .deleteButton:hover {
-    color: #fff !important;
-    background-color: #dc3545 !important;
-    border-color: #dc3545 !important;
-  }
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+}
+
+.contactListItem:hover {
+  background-color: #e9ecef;
+}
+
+.contactName {
+  flex: 1;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.contactNumber {
+  color: #6c757d;
+  margin-right: 10px;
+}
+
+.deleteButton {
+  color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.deleteButton:hover {
+  color: #fff !important;
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}

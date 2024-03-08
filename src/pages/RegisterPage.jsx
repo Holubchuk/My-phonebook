@@ -30,17 +30,6 @@ const RegisterPage = () => {
       <h1 className={css.titleRegister}>Make a new account</h1>
 
       <form className={css.formRegister} onSubmit={onSubmit}>
-        {/* <label className={css.labelRegister}>
-          Name:
-          <input
-            type="text"
-            name="name"
-            placeholder="Alex"
-            minLength={2}
-            className={css.inputRegister}
-            required
-          />
-        </label> */}
         <TextField
           margin="normal"
           required
@@ -54,16 +43,6 @@ const RegisterPage = () => {
           pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           autoFocus
         />
-        {/* <label className={css.labelRegister}>
-          Email:
-          <input
-            type="email"
-            name="email"
-            placeholder="alex123@gmail.com"
-            className={css.inputRegister}
-            required
-          />
-        </label> */}
         <TextField
           margin="normal"
           required
@@ -75,17 +54,6 @@ const RegisterPage = () => {
           placeholder="alex123@gmail.com"
           autoComplete="email"
         />
-        {/* <label className={css.labelRegister}>
-          Password:
-          <input
-            type="password"
-            name="password"
-            placeholder="**********"
-            minLength={7}
-            className={css.inputRegister}
-            required
-          />
-        </label> */}
         <TextField
           margin="normal"
           required

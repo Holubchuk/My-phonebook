@@ -50,18 +50,6 @@ export const AddContactForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={css.form}>
-      {/* <label>
-        <span className={css.formLabel}>Name:</span>
-        <input
-          type="text"
-          name="name"
-          value={form.name || ''}
-          placeholder="Alex"
-          onChange={handleFormChange}
-          className={css.formInput}
-          required
-        />
-      </label> */}
       <TextField
         margin="normal"
         required
@@ -75,35 +63,20 @@ export const AddContactForm = () => {
         placeholder="Alex"
         onChange={handleFormChange}
       />
-      {/* <label>
-        <span className={css.formLabel}>Number:</span>
-        <input
-          type="tel"
-          pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
-          max="7"
-          name="number"
-          value={form.number || ''}
-          onChange={handleFormChange}
-          placeholder="111-11-11"
-          className={css.formInput}
-          required
-        />
-      </label> */}
       <TextField
         margin="normal"
         required
         fullWidth
-        type="number"
+        type="tel"
         label="Number:"
         name="number"
-        max="7"
         autoComplete="number"
-        pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}"
+        pattern="[0-9]{3}-[0-9]{2}-[0-9]{2}" 
         value={form.number || ''}
         onChange={handleFormChange}
         placeholder="111-11-11"
       />
-      <Button type="submit"  variant="contained">
+      <Button type="submit" variant="contained">
         Add Contact
       </Button>
     </form>
